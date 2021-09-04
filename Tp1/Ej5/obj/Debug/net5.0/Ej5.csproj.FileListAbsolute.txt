@@ -1,0 +1,16 @@
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.exe
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.deps.json
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.runtimeconfig.json
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.runtimeconfig.dev.json
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.dll
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\ref\Ej5.dll
+C:\Users\lsegovia\source\repos\Tp1\Ej5\bin\Debug\net5.0\Ej5.pdb
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.csproj.AssemblyReference.cache
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.AssemblyInfoInputs.cache
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.AssemblyInfo.cs
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.csproj.CoreCompileInputs.cache
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.dll
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\ref\Ej5.dll
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.pdb
+C:\Users\lsegovia\source\repos\Tp1\Ej5\obj\Debug\net5.0\Ej5.genruntimeconfig.cache
