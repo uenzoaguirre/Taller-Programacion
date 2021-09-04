@@ -2,7 +2,7 @@ using System;
 
 namespace Ej1
 {
-    class Circulo
+    class Circulo //Clase Circulo
     {
         private double iRadio; 
          Punto iCentro; 
