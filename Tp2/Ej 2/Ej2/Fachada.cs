@@ -1,7 +1,8 @@
 using System;
 namespace Ej2
 {
-    class Fachada 
+    class Fachada //Clase Fachada
+
     {
         RepositorioBanca repositorioBanca;
         double precioDolar = 100;
