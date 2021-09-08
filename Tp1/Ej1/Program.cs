@@ -6,7 +6,9 @@ namespace Ej1
     {
         static void Main(string[] args)
         {
-            Main3();   
+            //LLamamos al prodecimiento con if
+            Main3();  
+            //Main2(); Procedimiento con switch
         }
         static void Main2()
         {

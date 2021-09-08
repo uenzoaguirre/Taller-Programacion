@@ -4,6 +4,10 @@ namespace Ej7
 {
     class Program
     {
+        /// <summary>
+        /// Determina si dos cadenas ingresadas son anagramas
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("Ingrese cadena 1 con letras o numeros sin el 0: ");
@@ -15,6 +19,7 @@ namespace Ej7
             if (cadena1.Length == cadena2.Length)
             {
                 esanagrama = true;
+                //Buscamos cada caracter de la cadena 1 en la cadena 2, y si lo encontramos lo reemplazamos por un 0
                 for (int i = 0; i < cadena1.Length; i++)
                 {
                     for (int j = 0; j < cadena2.Length; j++)

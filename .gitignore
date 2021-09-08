@@ -1,7 +1,16 @@
+# ignorar (exluir) todo
+*
 
+# incluir todas las carpetas
+!**/
 
-*.dll
-*.nuget
-*.pdb
-*.exe
-*.cache
+# excluir las siguientes carpetas
+**/obj/
+**/bin/
+**/.vs/
+
+# incluir todos los siguientes archivos
+!*.cs
+!*.csproj
+!*.sln
+!*.json
