@@ -15,7 +15,7 @@ using System.Globalization;
             {
                 this.iNombreJugador = pNombre;
                 this.iEdadJugador = pEdadJugador;
-                this.iFechaInicio = DateTime.Now;
+                this.iFechaHoraInicio = DateTime.Now;
             }
 
             public string Nombre
@@ -40,7 +40,7 @@ using System.Globalization;
 
             public bool Resultado 
             {
-                get {this.iResultado = false;}
+                get {return this.iResultado = false;}
             }
 
             public double TiempoEmpleado

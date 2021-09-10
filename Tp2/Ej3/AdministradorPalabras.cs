@@ -44,7 +44,8 @@ namespace Ej3
             {
                 this.iErrores++;
             }
-
+            
+            return encontrado;
         }
 
         public bool VerificarSigano()
@@ -53,3 +54,4 @@ namespace Ej3
         } 
        
     }
+}

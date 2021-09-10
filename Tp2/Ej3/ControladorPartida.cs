@@ -1,21 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ej3
 {
     class ControladorPartida
     {
         RepositorioPalabras iRepoPalabras;
-        RepositorioPartidas iRepoPartidas;
+        RepositorioPartida iRepoPartidas;
 
-        AdminsitradorPalabras iAdminPalabras;
-
-
+        AdministradorPalabras iAdminPalabras;
 
         public ControladorPartida()
         {
             this.iRepoPalabras = new RepositorioPalabras();
-            this.iRepoPartidas = new RepositorioPartidas();
+            this.iRepoPartidas = new RepositorioPartida();
             //this.iAdminPalabras = new AdminsitradorPalabras();
 
         }

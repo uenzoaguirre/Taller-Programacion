@@ -17,7 +17,7 @@ namespace Ej3
             this.iListaPartidas.Add(pPartida);
         }
 
-        public Lista<Partida> ObtenerTodas()
+        public List<Partida> ObtenerTodas()
         {
             return this.iListaPartidas;
         }
