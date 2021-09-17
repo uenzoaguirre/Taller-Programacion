@@ -26,5 +26,10 @@ namespace Ej3
         {
             this.iListaPartidas.Remove(pPartida); 
         }
+
+        public Partida ObtenerPorId(string pId)
+        {
+            return this.iListaPartidas.Find(partida => partida.Id == pId);
+        }
     }
 }

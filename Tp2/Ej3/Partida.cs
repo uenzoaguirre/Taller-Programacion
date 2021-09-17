@@ -3,19 +3,22 @@ using System.Globalization;
 
     namespace Ej3
     {
-        class Partida
+        class Partida: AdministradorPalabras
         {
             string iNombreJugador;
             int iEdadJugador;
             DateTime iFechaHoraInicio;
             DateTime iFechaHoraFin;
             bool iResultado;
+            string iId;
 
-            public Partida(string pNombre , int pEdadJugador)
+        public Partida(string pNombre , int pEdadJugador, string pId , string pPalabra): base(pPalabra)
             {
                 this.iNombreJugador = pNombre;
                 this.iEdadJugador = pEdadJugador;
                 this.iFechaHoraInicio = DateTime.Now;
+                this.iId = pId;
+                
             }
 
             public string Nombre
@@ -41,6 +44,11 @@ using System.Globalization;
             public bool Resultado 
             {
                 get {return this.iResultado = false;}
+            }
+
+            public string Id 
+            {
+            get { return this.iId;}
             }
 
             public double TiempoEmpleado
