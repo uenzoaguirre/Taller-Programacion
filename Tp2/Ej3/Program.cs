@@ -6,7 +6,21 @@ namespace Ej3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Ingrese su nombre: ");
+            string NombreJugador = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Ingrese su edad: ");
+            int EdadJugador = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Fachada fachada = new Fachada();
+            string Id = fachada.ComenzarPartida(NombreJugador, EdadJugador);
+            
+
+
+
+
+
+
         }
     }
 }
