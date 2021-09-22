@@ -18,25 +18,22 @@ namespace Ej3
             //this.iAdminPalabras = new AdminsitradorPalabras();
 
         }
-        public List<Partida> ListadoDeMejoresPartidas(int pCantidad)
-        {
-            var partidas = this.iRepoPartidas.ObtenerTodas().OrderBy(Partida => Partida.TiempoEmpleado);
-            return partidas.Take(pCantidad).ToList();
-        }
 
-        public string ComenzarPartida(string NombreJugador, int EdadJugador)
+        public string ComenzarPartida(string NombreJugador, int EdadJugador , int CantidadMaximaErrores)
         {
             string Id = Guid.NewGuid().ToString();
             string palabra = this.iRepoPalabras.ObtenerAleatoriamente();
-            Partida partida = new Partida(NombreJugador, EdadJugador, Id, palabra);
+            Partida partida = new Partida(NombreJugador, EdadJugador, Id, palabra, CantidadMaximaErrores);
             this.iRepoPartidas.Agregar(partida);
             return Id;
+
         }
 
-        public void ValidarLetra(string pId, char pLetra)
+        public List<CaracterIndice> ValidarLetra(string pId, char pLetra)
         {
             Partida partida = this.iRepoPartidas.ObtenerPorId(pId);
-            partida.VerificarLetra(pLetra);
+            return partida.VerificarLetra(pLetra);
+            
         }
 
         public bool GanoPartida(string pId)
@@ -45,15 +42,37 @@ namespace Ej3
             return partida.VerificarSigano();
         }
 
-        public void TerminarPartida(string pId, bool pResultado)
+        public void TerminarPartida(string pId)
         {
             Partida partida = this.iRepoPartidas.ObtenerPorId(pId);
-            partida.Finalizar(pResultado);
+            partida.Finalizar();
         }
 
         public int CantidadCaracteresPalabra(string pId)
         {
             Partida partida = this.iRepoPartidas.ObtenerPorId(pId);
+            return partida.Palabra.Length;
+        }
+
+        public bool VerificarSiperdio(string pId)
+        {
+            Partida partida = this.iRepoPartidas.ObtenerPorId(pId);
+            return partida.VerificarSiperdio();
+        }
+
+        public int Errores(string pId)
+        {
+            Partida partida = this.iRepoPartidas.ObtenerPorId(pId);
+            return partida.Errores;
+        }
+
+        public List<Partida> ListadoMejoresPartidas(int pCantidad)
+        {
+            List<Partida> TodasPartidas = this.iRepoPartidas.ObtenerTodas();
+            TodasPartidas = TodasPartidas.FindAll(Partida => Partida.HaGanado);
+            TodasPartidas.Sort((p1, p2) => p1.TiempoEmpleado.CompareTo(p2.TiempoEmpleado));
+            int Total = Math.Min(TodasPartidas.Count, pCantidad);
+            return TodasPartidas.GetRange(0, Total); 
 
         }
     }
