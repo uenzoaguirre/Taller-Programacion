@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Ej3
 {
-    class RepositorioPartida
+    class RepositorioPartidas
     {
 
         List<Partida> iListaPartidas;
-        public RepositorioPartida()
+        public RepositorioPartidas()
         {
             this.iListaPartidas = new List<Partida>();
         }
