@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            
+            // ejecutar el programa dotnet con el arugmento "test" -> dotnet test
+            "program": "dotnet",
+            "args": ["test"],
+            
+            // usar la consola integrada
+            "console": "integratedTerminal",
+        }
+    ]
+}
