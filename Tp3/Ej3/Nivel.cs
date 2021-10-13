@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tp3.Ej3
+namespace Ej3
 {
     public class Nivel
     {
@@ -16,23 +16,25 @@ namespace Tp3.Ej3
             this.numero= pnumero;
             this.categoria= pcategoria;
             this.color= pcolor;
+            this.fifo = new Queue<Paciente>();
             
             
         }
         public void Agregar(Paciente paciente )
         {
             fifo.Enqueue(paciente);
-
-
-
-
-
         }
+
 
         public Paciente Obtener()
         {
            return fifo.Dequeue();
 
+        }
+
+        public int CantidadDeElementos()
+        {
+            return fifo.Count;
         }
         
 

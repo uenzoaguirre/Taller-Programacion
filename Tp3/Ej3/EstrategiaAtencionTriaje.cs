@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tp3.Ej3
+namespace Ej3
 {
     
     public class EstrategiaAtencionTriaje: EstrategiaAtencion
@@ -12,6 +12,7 @@ namespace Tp3.Ej3
 
         public EstrategiaAtencionTriaje()
         {
+            this.niveles = new Dictionary<int, Nivel>();
             niveles.Add(1, new Nivel(1,"Atencion Inmediata","rojo"));
             niveles.Add(2, new Nivel(2,"Emergencia","anaranjado"));
             niveles.Add(3, new Nivel(3,"Urgente","amarillo"));
@@ -30,7 +31,17 @@ namespace Tp3.Ej3
         }
         public Paciente ObtenerPrioritario()
         {
+           //Recorrer todos los niveles desde mas urgente al menos urgente   
+           // y si tiene un elemento obtenerlo y devolverlo 
 
+           for (int i = 1; i < 6; i++)
+           {
+              if (niveles[i].CantidadDeElementos() > 0)
+              {
+                  return niveles[i].Obtener();
+              } 
+           }  
+           return null;
         }
         
         
