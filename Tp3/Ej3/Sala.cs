@@ -27,6 +27,11 @@ namespace Ej3
         {
             return estrategia.ObtenerPrioritario();
         }
+
+        public int CantidadPacientesEnEspera()
+        {
+            return estrategia.CantidadPacientesEnEspera();
+        }
     }
 
 }

@@ -39,5 +39,15 @@ namespace Ej3
             return salaConsulta.ObtenerPaciente().Nombre;
         }
 
+        public int CantidadPacientesUrgencia()
+        {
+            return salaUrgencia.CantidadPacientesEnEspera();
+        }
+
+        public int CantidadPacientesConsulta()
+        {
+            return salaConsulta.CantidadPacientesEnEspera();
+        }
+
     }
 }

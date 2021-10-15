@@ -19,6 +19,7 @@ namespace Ej3
                 "Heraldo","Agustin","Lucas","Brian",
                 "Santiago","Franchesco","Javier","Omar"
             };
+            var ElementosUrgencia = (nombres.Length - 10) / 5;
             for (int i = 0; i < 10; i++)
             {
 
@@ -27,7 +28,7 @@ namespace Ej3
             }
             for (int j = 1; j < 6; j++)
             {
-                for (int i = 10; i < 20; i++)
+                for (int i = 10 + (j-1)*2; i < 12+(j-1)*2; i++)
                 {
                     fachada.AgregarPacienteAUrgencias(nombres[i], j);
                 }
@@ -71,15 +72,33 @@ namespace Ej3
                 }
                 else
                 {
+
                     if (opcionSala == 1)
                     {
-                        string nombre = fachada.ObtenerPacienteDeUrgencia();
-                        Console.WriteLine("Nombre: {0}", nombre);
+                        if (fachada.CantidadPacientesUrgencia() > 0)
+                        {
+                            string nombre = fachada.ObtenerPacienteDeUrgencia();
+                            Console.WriteLine("Nombre: {0}", nombre);
+                        }
+                        else 
+                        {
+                            Console.WriteLine("No hay pacientes para obtener en la sala de urgencia");
+                        }
+                        
                     }
                     else
                     {
+                        if(fachada.CantidadPacientesConsulta() > 0)
+                        {
                         string nombre = fachada.ObtenerPacienteDeConsulta();
                         Console.WriteLine("Nombre: {0}", nombre);
+                        }
+                        else 
+                        {
+                            Console.WriteLine("No hay pacientes para obtener en la sala de consulta");
+                        
+                        }
+                        
                     }
                 }
 

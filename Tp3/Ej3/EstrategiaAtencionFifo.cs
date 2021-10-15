@@ -20,7 +20,11 @@ namespace Ej3
             return fifo.Dequeue();
             
         }
-        
+
+        public int CantidadPacientesEnEspera()
+        {
+            return fifo.Count;
+        }
         public EstrategiaAtencionFifo()
         {
             this.fifo = new Queue<Paciente>();

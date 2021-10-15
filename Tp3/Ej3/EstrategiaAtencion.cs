@@ -10,8 +10,8 @@ namespace Ej3
          void Agregar(PacienteEnEspera paciente);
 
          Paciente ObtenerPrioritario();
-        
 
+        int CantidadPacientesEnEspera();
         
     }
 }
