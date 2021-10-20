@@ -19,13 +19,13 @@
     </PackageReference>
   </ItemGroup>
 <ItemGroup>
-    <Compile Include="../Nivel.cs" />
-    <Compile Include="../EstrategiaAtencion.cs" />
-    <Compile Include="../EstrategiaAtencionFifo.cs" />
-    <Compile Include="../EstrategiaAtencionTriaje.cs" />
-    <Compile Include="../Paciente.cs" />
-    <Compile Include="../PacienteEnEspera.cs" />
-    <Compile Include="../Sala.cs" />
+    <Compile Include="../Ej3/Nivel.cs" />
+    <Compile Include="../Ej3/EstrategiaAtencion.cs" />
+    <Compile Include="../Ej3/EstrategiaAtencionFifo.cs" />
+    <Compile Include="../Ej3/EstrategiaAtencionTriaje.cs" />
+    <Compile Include="../Ej3/Paciente.cs" />
+    <Compile Include="../Ej3/PacienteEnEspera.cs" />
+    <Compile Include="../Ej3/Sala.cs" />
   </ItemGroup>
 
 </Project>

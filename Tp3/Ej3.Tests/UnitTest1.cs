@@ -50,6 +50,32 @@ namespace Ej3.Tests
 
             var nullcito = eTriaje.ObtenerPrioritario();
             Assert.Null(nullcito);
+
+
+        }
+         [Fact]
+        public void EstrategiaAtencionFifo_HappyPath_OK()
+        {
+            //Arrange
+            EstrategiaAtencionFifo eFifo = new EstrategiaAtencionFifo();
+          
+            //Act
+            var paciente = new PacienteEnEspera(new Paciente("Juan"),2);
+            var paciente2 = new PacienteEnEspera(new Paciente("Jorge"),2);
+            eFifo.Agregar(paciente);
+            eFifo.Agregar(paciente2);
+
+            //Assert
+            var juancito = eFifo.ObtenerPrioritario();
+            Assert.Equal("Juan", juancito.Nombre);
+            
+            Assert.Equal(1,eFifo.CantidadPacientesEnEspera());
+            var jorgito = eFifo.ObtenerPrioritario();
+            Assert.Equal("Jorge", jorgito.Nombre);
+
+            var nullcito = eFifo.ObtenerPrioritario();
+            Assert.Null(nullcito);
+
         }
 
 

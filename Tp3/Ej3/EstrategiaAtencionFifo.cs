@@ -17,12 +17,19 @@ namespace Ej3
         }
         public Paciente ObtenerPrioritario()
         {
-            return fifo.Dequeue();
-            
+           if (fifo.Count > 0)
+            {
+                return fifo.Dequeue();
+            } 
+            else {
+                return null;
+            }
+                
         }
 
         public int CantidadPacientesEnEspera()
         {
+            
             return fifo.Count;
         }
         public EstrategiaAtencionFifo()
