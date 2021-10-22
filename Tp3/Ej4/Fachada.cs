@@ -7,6 +7,11 @@ namespace Ej4
 {
     public class Fachada
     {
-        
+        FabricaEncriptadores Encriptadores=FabricaEncriptadores.Instance;
+
+        public void EncriptarCesar(string pCadena)
+        {
+            
+        }
     }
 }
