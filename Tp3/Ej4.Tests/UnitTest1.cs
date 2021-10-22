@@ -28,38 +28,40 @@ namespace Ej4.Tests
             //Act
             string mensaje = "Lihuen esta desempleado";
             string encriptada = EAES.Encriptar(mensaje);
-            Console.WriteLine("Esta es la cadena:{0}",encriptada);
+            Console.WriteLine("Esta es la cadena:{0}", encriptada);
             string desencriptada = EAES.Desencriptar(encriptada);
             //Assert
             Assert.Equal(desencriptada, mensaje);
         }
 
-          [Fact]
-         public void EncriptadorBlowFish_HappyPath_OK()
-         {
-             //Arrange
-             EncriptadorBlowFish EBlowFish = new EncriptadorBlowFish();
+        [Fact]
+        public void EncriptadorBlowFish_HappyPath_OK()
+        {
+            //Arrange
+            EncriptadorBlowFish EBlowFish = new EncriptadorBlowFish();
 
-             //Act
-             string mensaje = "Lihuen esta desempleado";
-             string encriptada = EBlowFish.Encriptar(mensaje);
-             string desencriptada = EBlowFish.Desencriptar(encriptada);
-             //Assert
-             Assert.Equal(desencriptada, mensaje);
-         }
-        /*   [Fact]
-         public void EncriptadorDES_HappyPath_OK()
-         {
-             //Arrange
-             EncriptadorDES EDES = new EncriptadorDES();
+            //Act
+            string mensaje = "Lihuen esta desempleado";
+            string encriptada = EBlowFish.Encriptar(mensaje);
+            string desencriptada = EBlowFish.Desencriptar(encriptada);
+            //Assert
+            Assert.Equal(desencriptada, mensaje);
+        }
 
-             //Act
-             string mensaje = "Lihuen esta desempleado";
-             string encriptada = EDES.Encriptar(mensaje);
-             string desencriptada = EDES.Desencriptar(encriptada);
-             //Assert
-             Assert.Equal(desencriptada, mensaje);
-         } */
+
+        [Fact]
+        public void EncriptadorDES_HappyPath_OK()
+        {
+            //Arrange
+            EncriptadorDES EDES = new EncriptadorDES();
+
+            //Act
+            string mensaje = "Lihuen esta desempleado";
+            string encriptada = EDES.Encriptar(mensaje);
+            string desencriptada = EDES.Desencriptar(encriptada);
+            //Assert
+            Assert.Equal(desencriptada, mensaje);
+        }
         [Fact]
         public void EncriptadorNulo_HappyPath_OK()
         {
@@ -73,21 +75,26 @@ namespace Ej4.Tests
             //Assert
             Assert.Equal(desencriptada, mensaje);
         }
-        /*    [Fact]
+            [Fact]
          public void FabricaEncriptadores_HappyPath_OK()
          {
              //Arrange
-             FabricaEncriptadores eInscriptadores= new FabricaEncriptadores();
+             FabricaEncriptadores eEncriptadores = FabricaEncriptadores.Instance;
 
-             //Act
+            //Act
+            EncriptadorCesar cesarcito = new EncriptadorCesar(4);
+            //EncriptadorDES DEScito = new EncriptadorDES();
+            //EncriptadorBlowFish blowFishcito = new EncriptadorBlowFish();
+            EncriptadorNulo nulcito = new EncriptadorNulo();
+            EncriptadorAES AEScito = new EncriptadorAES();
 
 
-             //Assert
+            //Assert
 
-             var nullcito = eInscriptadores.FabricaEncriptadores();
+            var nullcito = eEncriptadores;
              Assert.Null(nullcito);
 
-         } */
+         } 
 
 
     }
