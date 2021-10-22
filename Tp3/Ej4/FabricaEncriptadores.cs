@@ -7,10 +7,12 @@ namespace Ej4
 {
     public class FabricaEncriptadores
     {
+        
 
         private static Dictionary<string, Encriptador> iEncriptadores;
         private FabricaEncriptadores()
         {
+            iEncriptadores = new Dictionary<string, Encriptador>();
             iEncriptadores.Add("Cesar", new EncriptadorCesar(4));
             iEncriptadores.Add("AES", new EncriptadorAES());
             iEncriptadores.Add("Null", new EncriptadorNulo());

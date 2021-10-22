@@ -17,7 +17,7 @@ namespace Ej4.Tests
             string desencriptada = Ecesar.Desencriptar(encriptada);
             //Assert
             Assert.Equal(desencriptada, mensaje);
-            
+
         }
         [Fact]
         public void EncriptadorAES_HappyPath_OK()
@@ -28,38 +28,39 @@ namespace Ej4.Tests
             //Act
             string mensaje = "Lihuen esta desempleado";
             string encriptada = EAES.Encriptar(mensaje);
+            Console.WriteLine("Esta es la cadena:{0}",encriptada);
             string desencriptada = EAES.Desencriptar(encriptada);
             //Assert
             Assert.Equal(desencriptada, mensaje);
         }
 
-         [Fact]
-        public void EncriptadorBlowFish_HappyPath_OK()
-        {
-            //Arrange
-            EncriptadorBlowFish EBlowFish = new EncriptadorBlowFish();
-
-            //Act
-            string mensaje = "Lihuen esta desempleado";
-            string encriptada = EBlowFish.Encriptar(mensaje);
-            string desencriptada = EBlowFish.Desencriptar(encriptada);
-            //Assert
-            Assert.Equal(desencriptada, mensaje);
-        }
-         [Fact]
-        public void EncriptadorDES_HappyPath_OK()
-        {
-            //Arrange
-            EncriptadorDES EDES = new EncriptadorDES();
-
-            //Act
-            string mensaje = "Lihuen esta desempleado";
-            string encriptada = EDES.Encriptar(mensaje);
-            string desencriptada = EDES.Desencriptar(encriptada);
-            //Assert
-            Assert.Equal(desencriptada, mensaje);
-        }
           [Fact]
+         public void EncriptadorBlowFish_HappyPath_OK()
+         {
+             //Arrange
+             EncriptadorBlowFish EBlowFish = new EncriptadorBlowFish();
+
+             //Act
+             string mensaje = "Lihuen esta desempleado";
+             string encriptada = EBlowFish.Encriptar(mensaje);
+             string desencriptada = EBlowFish.Desencriptar(encriptada);
+             //Assert
+             Assert.Equal(desencriptada, mensaje);
+         }
+        /*   [Fact]
+         public void EncriptadorDES_HappyPath_OK()
+         {
+             //Arrange
+             EncriptadorDES EDES = new EncriptadorDES();
+
+             //Act
+             string mensaje = "Lihuen esta desempleado";
+             string encriptada = EDES.Encriptar(mensaje);
+             string desencriptada = EDES.Desencriptar(encriptada);
+             //Assert
+             Assert.Equal(desencriptada, mensaje);
+         } */
+        [Fact]
         public void EncriptadorNulo_HappyPath_OK()
         {
             //Arrange
@@ -72,21 +73,21 @@ namespace Ej4.Tests
             //Assert
             Assert.Equal(desencriptada, mensaje);
         }
-          [Fact]
-        public void FabricaEncriptadores_HappyPath_OK()
-        {
-            //Arrange
-            FabricaEncriptadores eInscriptadores= new FabricaEncriptadores();
-          
-            //Act
-            
+        /*    [Fact]
+         public void FabricaEncriptadores_HappyPath_OK()
+         {
+             //Arrange
+             FabricaEncriptadores eInscriptadores= new FabricaEncriptadores();
 
-            //Assert
+             //Act
 
-            var nullcito = eInscriptadores.FabricaEncriptadores();
-            Assert.Null(nullcito);
 
-        }
+             //Assert
+
+             var nullcito = eInscriptadores.FabricaEncriptadores();
+             Assert.Null(nullcito);
+
+         } */
 
 
     }

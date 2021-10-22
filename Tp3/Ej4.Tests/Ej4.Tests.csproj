@@ -26,6 +26,7 @@
     <Compile Include="../Ej4/EncriptadorBlowFish.cs" />
     <Compile Include="../Ej4/EncriptadorDES.cs" />
     <Compile Include="../Ej4/FabricaEncriptadores.cs" /> 
+    <Compile Include="../Ej4/BlowFish.cs" />
 
   </ItemGroup>
 
