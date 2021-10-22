@@ -82,18 +82,19 @@ namespace Ej4.Tests
              FabricaEncriptadores eEncriptadores = FabricaEncriptadores.Instance;
 
             //Act
-            EncriptadorCesar cesarcito = new EncriptadorCesar(4);
-            //EncriptadorDES DEScito = new EncriptadorDES();
-            //EncriptadorBlowFish blowFishcito = new EncriptadorBlowFish();
-            EncriptadorNulo nulcito = new EncriptadorNulo();
-            EncriptadorAES AEScito = new EncriptadorAES();
+            EncriptadorCesar cesarcito = (EncriptadorCesar)eEncriptadores.GetEncriptador("Cesar");
+            EncriptadorDES DEScito = (EncriptadorDES)eEncriptadores.GetEncriptador("DES");
+            EncriptadorBlowFish blowFishcito = (EncriptadorBlowFish)eEncriptadores.GetEncriptador("BlowFish");
+            EncriptadorNulo nulcito = (EncriptadorNulo)eEncriptadores.GetEncriptador("Null");
+            EncriptadorAES AEScito = (EncriptadorAES)eEncriptadores.GetEncriptador("AES");
 
 
             //Assert
-
-            var nullcito = eEncriptadores;
-             Assert.Null(nullcito);
-
+             Assert.Equal("Cesar",cesarcito.Nombre);
+             Assert.Equal("DES",DEScito.Nombre);
+             Assert.Equal("BlowFish",blowFishcito.Nombre);
+             Assert.Equal("Null",nulcito.Nombre);
+             Assert.Equal("AES",AEScito.Nombre);
          } 
 
 

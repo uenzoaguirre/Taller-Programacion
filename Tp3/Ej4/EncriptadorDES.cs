@@ -13,7 +13,7 @@ namespace Ej4
     public class EncriptadorDES : Encriptador
     {
         static byte[] bytes = ASCIIEncoding.ASCII.GetBytes("ZeroCool");
-        public EncriptadorDES() : base("EncriptadorDES")
+        public EncriptadorDES() : base("DES")
         {
 
         }
