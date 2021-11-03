@@ -14,6 +14,8 @@ namespace Ej2
         Usuario ObtenerPorCodigo(string pCodigo);
         IList<Usuario> ObtenerOrdenadosPor(IComparer<Usuario> pComparador);
         IList<Usuario> ObtenerOrdenadosPorCodigo();
+        IList<Usuario> ObtenerOrdenadosPorNombreCompleto();
+        IList<Usuario> ObtenerOrdenadosPorCorreo();
     }
     public class CompararUsuarioPorCodigo : IComparer<Usuario>
     {

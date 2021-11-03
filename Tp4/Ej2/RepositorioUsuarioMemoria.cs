@@ -7,7 +7,7 @@ namespace Ej2
 {
     public class RepositorioUsuarioMemoria : IRepositorioUsuarios
     {
-        Dictionary<string,Usuario> iUsuarios;
+        Dictionary<string,Usuario> iUsuarios = new Dictionary<string, Usuario>();
         public void Agregar (Usuario pUsuario)
         {
             iUsuarios.Add (pUsuario.Codigo, pUsuario);
