@@ -12,6 +12,34 @@ namespace Aplication
 
         } 
 
-        public 
+        public void Baja (string dni)
+        {
+
+        }
+          public bool ExisteUsuario (DTOUsuario usuario)
+        {
+
+        } 
+          public void ModificarDatosUsuario (string dni,Dictionary<string,string> cambios)
+        {
+
+        }
+          public bool LoguearUsuario (string nombreUsuario, string password)
+        {
+
+        }
+          public void PrestarEjemplar (string dni, string codigoInventario)
+        {
+
+        }
+          public void DevolverEjemplar (string dni, int idPrestamo, bool buenEstado)
+        {
+
+        }
+          public void BajaEjemplar (string codigoInventario, string isbn)
+        {
+
+        }
+
     }
 }
