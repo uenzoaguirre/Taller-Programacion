@@ -6,13 +6,62 @@ using System.Threading.Tasks;
 namespace Aplication
 {
     public class Fachada
+
     {
+        IServicesObras obras;
+        IServicesEdicion edicion1;
+        IServicesAutores autores;
+
+        IRepositorioPrestamo repoPrestamo; 
         public void AgregarUsuario(DTOUsuario usuario , bool esAdmin)
         {
 
         } 
 
-        public void Baja (string dni)
+        public void AgregarEjemplar(string codigoInventario, string isbn)
+        {
+
+        }
+        public List<DTOPrestamo> PrestamosProximosAVencer(string dni) 
+        {
+
+        } 
+
+        public List<DTOPrestamo> ListarPrestamos(string dni) 
+        {
+
+        }
+
+        public  List<DTOPrestamo> PrestamosEntreFechas(string dni, DateTime fechaInicio ,DateTime fechaFin)
+        {
+                
+        }
+
+        public bool EsUsuarioAdmin(string nombreUsuario) 
+        {
+
+        }
+
+        public List<DTOEjemplar> ListarEjemplares(DTOEjemplar ejemplar)
+        {
+
+        } 
+
+        public List<DTOEdicion> ListarEdiciones (DTOEdicion edicion)
+        {
+
+        } 
+
+        public void AgregarEdicion(DTOEdicion edicion) 
+        {
+            
+        }
+
+        public bool ExisteEdicion(DTOEdicion edicion)
+        {
+
+        }
+        public void BajaUsuario (string dni)
         {
 
         }
@@ -20,7 +69,7 @@ namespace Aplication
         {
 
         } 
-          public void ModificarDatosUsuario (string dni,Dictionary<string,string> cambios)
+          public void ModificarDatosUsuario (string dni,DTOUsuario usuario)
         {
 
         }
@@ -41,5 +90,7 @@ namespace Aplication
 
         }
 
+
+        
     }
 }
