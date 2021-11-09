@@ -13,6 +13,8 @@ namespace Aplication
         IServicesAutores autores;
 
         IRepositorioPrestamo repoPrestamo; 
+
+        I
         public void AgregarUsuario(DTOUsuario usuario , bool esAdmin)
         {
 
@@ -34,7 +36,7 @@ namespace Aplication
 
         public  List<DTOPrestamo> PrestamosEntreFechas(string dni, DateTime fechaInicio ,DateTime fechaFin)
         {
-                
+
         }
 
         public bool EsUsuarioAdmin(string nombreUsuario) 
