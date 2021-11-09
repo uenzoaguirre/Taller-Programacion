@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public class RepositorioPrestamo: IRepositorio<Prestamo>
+    public class IRepositorioPrestamo: IRepositorio<Prestamo>
     {
          List<Prestamo> iListaPrestamos;
-        public RepositorioPrestamo()
+        public IRepositorioPrestamo()
         {
             this.iListaPrestamos = new List<Prestamo>();
         }

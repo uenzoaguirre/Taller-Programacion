@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 namespace Aplication
 {
     public class Fachada
+
     {
+        IServicesObras obras;
+        IServicesEdicion edicion1;
+        IServicesAutores autores;
+
+        IRepositorioPrestamo repoPrestamo; 
         public void AgregarUsuario(DTOUsuario usuario , bool esAdmin)
         {
 
@@ -28,7 +34,7 @@ namespace Aplication
 
         public  List<DTOPrestamo> PrestamosEntreFechas(string dni, DateTime fechaInicio ,DateTime fechaFin)
         {
-
+                
         }
 
         public bool EsUsuarioAdmin(string nombreUsuario) 
@@ -36,12 +42,12 @@ namespace Aplication
 
         }
 
-        public List<DTOEjemplar> ListarEjemplares(dictionary<string,string> datos)
+        public List<DTOEjemplar> ListarEjemplares(DTOEjemplar ejemplar)
         {
 
         } 
 
-        public List<DTOEdicion>ListarEdiciones(dictionary<string,string> datos)
+        public List<DTOEdicion> ListarEdiciones (DTOEdicion edicion)
         {
 
         } 
@@ -51,7 +57,35 @@ namespace Aplication
             
         }
 
-        public bool ExisteEdicion(DTOEdicion edicion) 
+        public bool ExisteEdicion(DTOEdicion edicion)
+        {
+
+        }
+        public void BajaUsuario (string dni)
+        {
+
+        }
+          public bool ExisteUsuario (DTOUsuario usuario)
+        {
+
+        } 
+          public void ModificarDatosUsuario (string dni,DTOUsuario usuario)
+        {
+
+        }
+          public bool LoguearUsuario (string nombreUsuario, string password)
+        {
+
+        }
+          public void PrestarEjemplar (string dni, string codigoInventario)
+        {
+
+        }
+          public void DevolverEjemplar (string dni, int idPrestamo, bool buenEstado)
+        {
+
+        }
+          public void BajaEjemplar (string codigoInventario, string isbn)
         {
 
         }
