@@ -16,19 +16,19 @@ namespace Ej4
 
         TipoCliente iTipo;
 
-        public  Cliente(string pNombre , string pApellido , DateTime pFechaNacimiento , Empleo pEmpleo)
+        public Cliente(string pNombre, string pApellido, DateTime pFechaNacimiento, Empleo pEmpleo)
         {
             this.iNombre = pNombre;
             this.iApellido = pApellido;
             this.iFechaNacimiento = pFechaNacimiento;
             this.iEmpleo = pEmpleo;
-        } 
+        }
 
         public string Nombre
         {
-            get 
-            { 
-                return this.iNombre; 
+            get
+            {
+                return this.iNombre;
             }
         }
 
@@ -40,7 +40,7 @@ namespace Ej4
             }
         }
 
-        public DateTime FechaNacimiento 
+        public DateTime FechaNacimiento
         {
             get
             {
@@ -50,33 +50,27 @@ namespace Ej4
 
         public TipoCliente Tipo
         {
-            get 
+            get
             {
                 return this.iTipo;
             }
-            set 
+            set
             {
                 iTipo = value;
             }
         }
 
-      
-      public Empleo Empleo
+
+        public Empleo Empleo
         {
-            get 
+            get
             {
                 return this.iEmpleo;
             }
-            set 
-        {
+            set
+            {
 
-
-
-
-
-
-
-
-
+            }
+        }
     }
 }
