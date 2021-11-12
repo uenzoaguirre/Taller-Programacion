@@ -7,47 +7,26 @@ namespace Ej4
 {
     public class Fachada
     {
-        EvaluadorAntiguedadLaboral eAntiguedadLaboral;
-        EvaluadorCantidadCuotas eCantCuotas;
-        EvaluadorEdad eEdad;
-
-        EvaluadorMonto eMonto;
-        EvaluadorSueldo eSueldo;
-        public bool EvaluarEdad(SolicitudPrestamo pSolicitud)
+        GestorPrestamos gestor = new GestorPrestamos();
+        List<Cliente> clientes = new List<Cliente>();
+        public void AgregarCliente(DTOCliente dCliente)
         {
-            return eEdad.EsValida(pSolicitud);
+            Empleo pEmpleo = new Empleo(dCliente.Sueldo, dCliente.FechaIngreso);
+            Cliente pCliente = new Cliente(dCliente.Nombre, dCliente.Apellido, dCliente.FechaNacimiento, pEmpleo);
+            clientes.Add(pCliente);
         }
 
-        public bool EvaluarAntiguedadLaboral(SolicitudPrestamo pSolicitud)
+        public bool EvaluarPrestamo(DTOSolicitudPrestamo dSolicitud, string pNombreCliente, string pApellidoCliente)
         {
-            return eAntiguedadLaboral.EsValida(pSolicitud);
-        }
-
-        public bool EvaluarCuotas(SolicitudPrestamo pSolicitud)
-        {
-            return eCantCuotas.EsValida(pSolicitud);
-        }
-
-        public bool EvaluarMonto(SolicitudPrestamo pSolicitud)
-        {
-            return eMonto.EsValida(pSolicitud);
-        }
-
-        public bool EvaluarSueldo(SolicitudPrestamo pSolicitud)
-        {
-            return eSueldo.EsValida(pSolicitud);
-        }
-
-        public bool EvaluarPrestamo(SolicitudPrestamo pSolicitud)
-        {
-            if  (EvaluarEdad(pSolicitud) && EvaluarAntiguedadLaboral(pSolicitud) && EvaluarCuotas(pSolicitud) && EvaluarMonto(pSolicitud) && EvaluarSueldo(pSolicitud))
+            var cliente = clientes.Find(pCliente => pCliente.Nombre == pNombreCliente && pCliente.Apellido == pApellidoCliente);
+            if (cliente != null)
             {
-                return true;
+                SolicitudPrestamo pSolicitud = new SolicitudPrestamo(cliente, dSolicitud.Monto, dSolicitud.CantidadCuotas);
+                return gestor.EsValida(pSolicitud);
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
+
     }
+
 }

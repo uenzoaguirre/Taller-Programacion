@@ -12,7 +12,7 @@ namespace Ej4.Test
             Cliente cliente1 = new Cliente( Lihuen, Segovia, 30-12-2000 , pEmpleo1); 
             SolicitudPrestamo pSolicitud = new SolicitudPrestamo(Cliente1,200000,30);
             EvaluadorCompuesto eCompuesto = new EvaluadorCompuesto();
-            Assert.Equal("true", eCompuesto.EsValida(pSolicitud));
+            Assert.Equal(false, eCompuesto.EsValida(pSolicitud));
         }
     }
 }

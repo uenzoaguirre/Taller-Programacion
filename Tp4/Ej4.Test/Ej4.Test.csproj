@@ -19,26 +19,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="../Ej4/Fachada.cs" />
-    <ItemGroup>
+    <Compile Include="../Ej4/Empleo.cs" />
     <Compile Include="../Ej4/Cliente.cs" />
-    <ItemGroup>
-    <Compile Include="../Ej4/EvaluadorAntiguedadSueldo.cs" />
-    <ItemGroup>
+    <Compile Include="../Ej4/EvaluadorAntiguedaLaboral.cs" />
     <Compile Include="../Ej4/EvaluadorCompuesto.cs" />
-    <ItemGroup>
-    <Compile Include="../Ej4/EvaluadorEdad.cs" />
-    <ItemGroup>
+    <Compile Include="../Ej4/EvaluadorEdad.cs" />  
+    <Compile Include="../Ej4/EvaluadorCantidadCuotas.cs" />
     <Compile Include="../Ej4/EvaluadorMonto.cs" />
-    <ItemGroup>
     <Compile Include="../Ej4/EvaluadorSueldo.cs" />
-    <ItemGroup>
     <Compile Include="../Ej4/GestorPrestamos.cs" />
-    <ItemGroup>
     <Compile Include="../Ej4/iEvaluador.cs" />
-    <ItemGroup>
     <Compile Include="../Ej4/SolicitudPrestamo.cs" />
-    <ItemGroup>
     <Compile Include="../Ej4/TipoCliente.cs" />
-    <ItemGroup>
+    <Compile Include="../Ej4/DTOCliente.cs" />
+    <Compile Include="../Ej4/DTOSolicitudPrestamo.cs" />
+    </ItemGroup>
 </Project>

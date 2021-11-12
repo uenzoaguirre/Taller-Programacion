@@ -35,7 +35,7 @@ namespace Ej4
 
         }
 
-        public bool Esvalida(SolicitudPrestamo pSolicitud)
+        public bool EsValida(SolicitudPrestamo pSolicitud)
         {
             EvaluadorCompuesto eCompuesto = new EvaluadorCompuesto();
             List<IEvaluador> evaluadores = this.iEvaluadoresPorCliente[pSolicitud.Cliente.Tipo]; 
