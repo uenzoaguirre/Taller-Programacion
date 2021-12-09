@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public class UsuarioAdministrador
+    public class UsuarioSimple
     {
         
     }
