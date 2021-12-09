@@ -7,6 +7,9 @@ namespace Aplication
 {
     public class ServicesObrasOpenLibrary
     {
-        List<DTOObra> Buscar (Dictionary<string,string> pFiltros);
+        List<DTOObra> Buscar (Dictionary<string,string> pFiltros)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

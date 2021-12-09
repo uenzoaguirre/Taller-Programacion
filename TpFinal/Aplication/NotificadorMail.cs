@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public class NotificadorMail : Inotificador
+    public class NotificadorMail : INotificador
     {
         string mailRemitente;
-        int password;
+        string password;
         int puerto;
         bool eneableSSL; 
-        public NotificadorMail(string pMailRemitente, int pPassword, int pPuerto, bool pEneableSSL)
+        public NotificadorMail(string pMailRemitente, string pPassword, int pPuerto, bool pEneableSSL)
         {
             mailRemitente = pMailRemitente;
             password = pPassword;

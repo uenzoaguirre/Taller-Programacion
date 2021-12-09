@@ -29,32 +29,32 @@ namespace Aplication
         }
         public List<DTOPrestamo> PrestamosProximosAVencer(string dni) 
         {
-
+          throw new NotImplementedException();
         } 
 
         public List<DTOPrestamo> ListarPrestamos(string dni) 
         {
-
+          throw new NotImplementedException();
         }
 
         public  List<DTOPrestamo> PrestamosEntreFechas(string dni, DateTime fechaInicio ,DateTime fechaFin)
         {
-
+          throw new NotImplementedException();
         }
 
         public bool EsUsuarioAdmin(string nombreUsuario) 
         {
-
+          throw new NotImplementedException();
         }
 
         public List<DTOEjemplar> ListarEjemplares(DTOEjemplar ejemplar)
         {
-
+          throw new NotImplementedException();
         } 
 
         public List<DTOEdicion> ListarEdiciones (DTOEdicion edicion)
         {
-
+          throw new NotImplementedException();
         } 
 
         public void AgregarEdicion(DTOEdicion edicion) 
@@ -64,7 +64,7 @@ namespace Aplication
 
         public bool ExisteEdicion(DTOEdicion edicion)
         {
-
+          throw new NotImplementedException();
         }
         public void BajaUsuario (string dni)
         {
@@ -72,7 +72,7 @@ namespace Aplication
         }
           public bool ExisteUsuario (DTOUsuario usuario)
         {
-
+          throw new NotImplementedException();
         } 
           public void ModificarDatosUsuario (string dni,DTOUsuario usuario)
         {
@@ -80,7 +80,7 @@ namespace Aplication
         }
           public bool LoguearUsuario (string nombreUsuario, string password)
         {
-
+          throw new NotImplementedException();
         }
           public void PrestarEjemplar (string dni, string codigoInventario)
         {

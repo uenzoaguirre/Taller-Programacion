@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Aplication
 {
@@ -22,11 +23,14 @@ namespace Aplication
         {
             return this.iListaPrestamos.Find(prestamo => prestamo.Id == prestamoId);
         }
-        public Prestamo Encontrar(int predicado)
+        public IEnumerable<Prestamo> Encontrar(Expression< Func<Prestamo,bool> > predicado )
         {
-            return this.iListaPrestamos.Find(predicado=> iListaPrestamos.Predicado==predicado);
-
+            //return this.iListaPrestamos.Find(predicado=> iListaPrestamos.Predicado==predicado);
+            throw new NotImplementedException();
         }
-
+        public IEnumerable<Prestamo> ObtenerTodos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

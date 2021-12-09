@@ -7,7 +7,7 @@ namespace Aplication
 {
     public class IRepositorioUsuario
     {
-        void Agregar (usuario pUsuario)
+       /* void Agregar (usuario pUsuario)
         {
 
         }
@@ -19,7 +19,7 @@ namespace Aplication
         List<Usuario> Encontrar(int predicado)
         {
             
-        }
+        }*/
 
-    }
+    } 
 }

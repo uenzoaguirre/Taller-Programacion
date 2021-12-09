@@ -27,7 +27,7 @@ namespace Aplication
         public DateTime FechaVencimiento { get { return fechaVencimiento; } }
 
         public Usuario Solicitante { get { return usuarioSolicitante; } }
-
+        public int Id {get {return this.id;}}
         int id;
 
         DateTime fechaPrestamo;

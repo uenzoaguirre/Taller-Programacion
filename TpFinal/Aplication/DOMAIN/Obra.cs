@@ -35,7 +35,7 @@ namespace Aplication
             }
         }
 
-        public void Obra(string pTtiulo, string pLccn, string pDescripicon)
+        public Obra(string pTtiulo, string pLccn, string pDescripicon)
         {
             this.titulo = pTtiulo;
             this.lccn = pLccn;
