@@ -61,6 +61,7 @@ namespace Aplication
                             autor.Nombre = HttpUtility.HtmlDecode(bResponseItem.name.ToString());
                             if (bResponseItem.ContainsKey("alternate_names"))
                             {
+                                autor.NombresAlternativos = new List<string>();
                                 foreach (var bNombreAlternativo in bResponseItem.alternate_names)
                                 {
                                     autor.NombresAlternativos.Add(bNombreAlternativo.Value);
