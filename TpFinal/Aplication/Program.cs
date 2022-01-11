@@ -14,6 +14,10 @@ namespace Aplication
            var ediciones = ServiceEdicionesOpenLibrary.Buscar(filtrosEdiciones);
            Console.WriteLine("Tamaños de lista: {0}",ediciones.Count);
 
+           var filtrosObras = new Dictionary<string, string>() { { "Autor", "Tolkien" },{ "Titulo","the lord of the rings"} } ;
+           var obras = ServicesObrasOpenLibrary.Buscar(filtrosObras);
+           Console.WriteLine("Tamaños de lista: {0}",obras.Count);
+
             
         }
 

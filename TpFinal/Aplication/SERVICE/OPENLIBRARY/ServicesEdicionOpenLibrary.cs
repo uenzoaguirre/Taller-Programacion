@@ -8,12 +8,13 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Globalization;
+using Aplication.SERVICE.Http;
 
 namespace Aplication
 {
     public class ServiceEdicionesOpenLibrary
     {
-       public static List<DTOEdicion> Buscar(Dictionary<string, string> pFiltros)
+        public static List<DTOEdicion> Buscar(Dictionary<string, string> pFiltros)
         {
             // Establecimiento del protocolo ssl de transporte
             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -28,51 +29,32 @@ namespace Aplication
             }
             List<DTOEdicion> ediciones = new List<DTOEdicion>();
 
-
-            // Se crea el request http
-            HttpWebRequest mRequest = (HttpWebRequest)WebRequest.Create(mUrl);
-
             try
             {
-                // Se ejecuta la consulta
-                WebResponse mResponse = mRequest.GetResponse();
-
-                // Se obtiene los datos de respuesta
-                using (Stream responseStream = mResponse.GetResponseStream())
-                {
-                    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-
-                    // Se parsea la respuesta y se serializa a JSON a un objeto dynamic
-                    dynamic mResponseJSON = JsonConvert.DeserializeObject(reader.ReadToEnd());
-
-                    // Se iteran cada uno de los resultados.
-
-                    DTOEdicion edicion = new DTOEdicion();
-                    edicion.Isbn = pFiltros["ISBN"];
-                    edicion.Portada = String.Format("https://covers.openlibrary.org/b/isbn/{0}-L.jpg", pFiltros["ISBN"]);
-                    edicion.numeroPaginas = mResponseJSON["number_of_pages"];
-                    edicion.Edicion = mResponseJSON["revision"];
-                    edicion.FechaPublicacion = DateTime.ParseExact((string)mResponseJSON["publish_date"] , "MMMM d, yyyy" , CultureInfo.InvariantCulture);
-                    ediciones.Add(edicion); 
-
-                }
+                dynamic mResponseJson = HttpJsonRequest.Obtener(mUrl);
+                DTOEdicion edicion = new DTOEdicion();
+                edicion.Isbn = pFiltros["ISBN"];
+                edicion.Portada = String.Format("https://covers.openlibrary.org/b/isbn/{0}-L.jpg", pFiltros["ISBN"]);
+                edicion.numeroPaginas = mResponseJson["number_of_pages"];
+                edicion.Edicion = mResponseJson["revision"];
+                edicion.FechaPublicacion = DateTime.ParseExact((string)mResponseJson["publish_date"], "MMMM d, yyyy", CultureInfo.InvariantCulture);
+                ediciones.Add(edicion);
             }
-            catch (WebException ex)
+            catch (ExcepcionConsultaWeb ex)
             {
-                WebResponse mErrorResponse = ex.Response;
-                using (Stream mResponseStream = mErrorResponse.GetResponseStream())
-                {
-                    StreamReader mReader = new StreamReader(mResponseStream, Encoding.GetEncoding("utf-8"));
-                    String mErrorText = mReader.ReadToEnd();
-
-                    System.Console.WriteLine("Error: {0}", mErrorText);
-                }
+                Console.WriteLine("Error {0}", ex.Message);
             }
-            catch (Exception ex)
+            catch (ExcepcionRespuestaInvalida ex1)
             {
-                System.Console.WriteLine("Error: {0}", ex.Message);
+                Console.WriteLine("Error {0}", ex1.Message); 
             }
-            return ediciones; 
+
+
+            return ediciones;
+
+
+
+
         }
     }
 
