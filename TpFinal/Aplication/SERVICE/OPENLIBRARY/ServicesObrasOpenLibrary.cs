@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using Aplication.SERVICE.Http;
+using Aplication.LOG;
 
 namespace Aplication
 {
@@ -31,7 +32,7 @@ namespace Aplication
             {
                 dynamic mResponseJSON = HttpJsonRequest.Obtener(mUrl);
 
-                System.Console.WriteLine("numFound: {0}", mResponseJSON.numFound);
+                LogManager.GetLogger().Error("numFound: {0}", mResponseJSON.numFound);
 
                 // Se iteran cada uno de los resultados
                 foreach (var bResponseItem in mResponseJSON.docs)
@@ -75,11 +76,11 @@ namespace Aplication
             }
             catch (ExcepcionConsultaWeb ex)
             {
-                Console.WriteLine("Error {0}", ex.Message);
+                LogManager.GetLogger().Error(ex, "No se puede realizar la consulta en el servidor");
             }
             catch (ExcepcionRespuestaInvalida ex1)
             {
-                Console.WriteLine("Error {0}", ex1.Message);
+                LogManager.GetLogger().Error("Error {0}", ex1.Message);
             }
             return obras;
 

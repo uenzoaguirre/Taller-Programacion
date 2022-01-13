@@ -9,6 +9,8 @@ using System.Text;
 using System.Web;
 using System.Globalization;
 using Aplication.SERVICE.Http;
+using Aplication.LOG;
+
 
 namespace Aplication
 {
@@ -69,7 +71,7 @@ namespace Aplication
                     catch (FormatException ex)
                     {
                         // Error fecha invalida
-                        Console.WriteLine("Error: Fecha invalida '{0}'. {1}", fechaString, ex.Message);
+                        LogManager.GetLogger().Error(ex,"Error: Fecha invalida '{0}'. {1}", fechaString, ex.Message);
                     }
                 }
 
@@ -77,11 +79,11 @@ namespace Aplication
             }
             catch (ExcepcionConsultaWeb ex)
             {
-                Console.WriteLine("Error {0}", ex.Message);
+                LogManager.GetLogger().Error(ex, "No se puede realizar la consulta en el servidor");
             }
             catch (ExcepcionRespuestaInvalida ex1)
             {
-                Console.WriteLine("Error {0}", ex1.Message);
+                LogManager.GetLogger().Error(ex1,"No se encontro respuesta");
             }
 
             return null;
