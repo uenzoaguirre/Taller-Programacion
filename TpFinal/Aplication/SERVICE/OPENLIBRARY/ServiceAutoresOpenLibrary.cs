@@ -34,8 +34,6 @@ namespace Aplication
             List<DTOAutor> autores = new List<DTOAutor>();
             try
             {
-
-
                 dynamic mResponseJSON = HttpJsonRequest.Obtener(mUrl);
 
                 System.Console.WriteLine("numFound: {0}", mResponseJSON.numFound);
@@ -63,9 +61,12 @@ namespace Aplication
                     DTOAutor autor = new DTOAutor();
                     autor.NombresAlternativos = new List<string>();
                     autor.Nombre = HttpUtility.HtmlDecode(mResponseJSON.name.ToString());
-                    foreach (var bNombreAlternativo in mResponseJSON.alternate_names)
+                    if (mResponseJSON.ContainsKey("alternate_names"))
                     {
-                        autor.NombresAlternativos.Add(bNombreAlternativo.Value);
+                        foreach (var bNombreAlternativo in mResponseJSON.alternate_names)
+                        {
+                            autor.NombresAlternativos.Add(bNombreAlternativo.Value);
+                        }
                     }
                     autores.Add(autor);
                 }

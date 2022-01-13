@@ -23,14 +23,12 @@ namespace Aplication
             // Url de ejemplo
             string mUrl = "";
 
-            mUrl = String.Format("https://openlibrary.org/search.json?author={0}&title={1}", HttpUtility.HtmlEncode(pFiltros["Autor"]), HttpUtility.HtmlEncode(pFiltros["Titulo"]));
+            mUrl = String.Format("https://openlibrary.org/search.json?author={0}&title={1}&limit=1", HttpUtility.HtmlEncode(pFiltros["Autor"]), HttpUtility.HtmlEncode(pFiltros["Titulo"]));
 
 
             List<DTOObra> obras = new List<DTOObra>();
             try
             {
-
-
                 dynamic mResponseJSON = HttpJsonRequest.Obtener(mUrl);
 
                 System.Console.WriteLine("numFound: {0}", mResponseJSON.numFound);
@@ -39,7 +37,15 @@ namespace Aplication
                 foreach (var bResponseItem in mResponseJSON.docs)
                 {
                     DTOObra obra = new DTOObra();
-                    obra.Autor = HttpUtility.HtmlDecode(bResponseItem.author_name.ToString());
+                    obra.Autores = new List<DTOAutor>();
+
+                    foreach (var autorkey in bResponseItem.author_key)
+                    {
+                        // como lo buscamos por el id que nos da openlibrary sabemos que existe
+                        var autores = ServiceAutoresOpenLibrary.Buscar(new Dictionary<string, string>() { { "Id", autorkey.Value } });
+                        obra.Autores.Add(autores[0]);
+                    }
+
                     obra.Titulo = HttpUtility.HtmlDecode(bResponseItem.title.ToString());
                     obra.Generos = new List<string>();
                     if (bResponseItem.ContainsKey("subject"))
@@ -49,17 +55,22 @@ namespace Aplication
                             obra.Generos.Add(genero.Value);
                         }
                     }
-                    
-                    obra.Ediciones = new List<string>();
+
+                    obra.Ediciones = new List<DTOEdicion>();
                     if (bResponseItem.ContainsKey("edition_key"))
                     {
-                        foreach (var edicion in bResponseItem.edition_key)
+                        foreach (var edicionkey in bResponseItem.edition_key)
                         {
-                            obra.Generos.Add(edicion.Value);
+                            // TODO: Ediciones -> Buscar devuelve un DTOEdicion, no una lista.
+                            DTOEdicion edicion = ServiceEdicionesOpenLibrary.Buscar(new Dictionary<string, string>() { { "Id", edicionkey.Value } });
+                            if (edicion != null)
+                            {
+                                obra.Ediciones.Add(edicion);
+                            }
                         }
                     }
+
                     obras.Add(obra);
-                    
                 }
             }
             catch (ExcepcionConsultaWeb ex)

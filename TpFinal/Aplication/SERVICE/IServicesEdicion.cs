@@ -7,6 +7,6 @@ namespace Aplication
 {
     public interface IServicesEdicion
     {
-         List<DTOEdicion> Buscar (Dictionary<string,string> pFiltros);
+        DTOEdicion Buscar(Dictionary<string, string> pFiltros);
     }
 }
