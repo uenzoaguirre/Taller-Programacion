@@ -7,37 +7,16 @@ namespace Aplication
 {
     public class Prestamo
     {
-        // FIX:     1. pFechaDevolucion no va en el constructor
-        //          2. fechaDevolcion inicializar en null en el diagrama
-        //          3. Agregar el parametro ejemplar al ctor
-        //          4. Agregar usuarioSolicitante al ctor del diagrama
-        public Prestamo(int pId, DateTime pFechaPrestamo, DateTime pFechaVencimiento, Ejemplar pEjemplar, Usuario pUsuarioSolicitante)
-        {
-            this.id = pId;
-            this.fechaPrestamo = pFechaPrestamo;
-            this.fechaVencimiento = pFechaVencimiento;
-            this.ejemplar = pEjemplar;
-            this.usuarioSolicitante = pUsuarioSolicitante;
-        }
+        public Prestamo() { }
 
-        public DateTime FechaPrestamo { get { return fechaPrestamo; } }
+        public DateTime FechaPrestamo { get; set; }
 
-        public DateTime? FechaDevolucion { get { return fechaDevolucion; } }
+        public DateTime? FechaDevolucion { get; set; }
 
-        public DateTime FechaVencimiento { get { return fechaVencimiento; } }
+        public DateTime FechaVencimiento { get; set; }
 
-        public Usuario Solicitante { get { return usuarioSolicitante; } }
-        public int Id {get {return this.id;}}
-        int id;
+        public Usuario Solicitante { get; set; }
 
-        DateTime fechaPrestamo;
-
-        DateTime? fechaDevolucion = null;
-
-        DateTime fechaVencimiento;
-
-        Ejemplar ejemplar;
-
-        Usuario usuarioSolicitante;
+        public int Id { get; set; }
     }
 }
