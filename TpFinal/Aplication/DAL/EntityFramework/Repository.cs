@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 namespace Aplication.DAL.EntityFramework
 {
     public abstract class Repository<TEntity, TDbContext> : IRepositorio<TEntity> where TEntity : class

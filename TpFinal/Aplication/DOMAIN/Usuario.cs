@@ -7,8 +7,9 @@ namespace Aplication
 {
     public class Usuario
     {
+        public bool EsAdministrador { get; set; }
 
-
+        public int Id { get; set; }
         public int Dni
         {
             get; set;

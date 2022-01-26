@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public class IRepositorioEjemplares
+    public interface IRepositorioEjemplares : IRepositorio<Ejemplar>
     {
-        
+
     }
 }

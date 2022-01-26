@@ -3,25 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Aplication.DAL.EntityFramework.Mapping;
 
 
 namespace Aplication.DAL.EntityFramework
 {
     public class BibliotecaDbContext : DbContext
     {
-        public DbSet<Ejemplar> Ejemplares { get; set}
-        public DbSet<Obra> Orbras { get; set}
-        public DbSet<Prestamo> Prestamos { get; set}
-        public DbSet<Usuario> Usuarios { get; set}
+        public DbSet<Ejemplar> Ejemplares { get; set; }
+        public DbSet<Obra> Orbras { get; set; }
+        public DbSet<Prestamo> Prestamos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            //cambiamos el nombre de la tabla//
+            modelBuilder.Entity<Obra>().ToTable("Obras");
+            modelBuilder.Entity<Edicion>().ToTable("Ediciones");
+            modelBuilder.ApplyConfiguration(new EjemplarConfiguration());
+            modelBuilder.ApplyConfiguration(new EdicionConfiguration());
+            modelBuilder.ApplyConfiguration(new ObraConfiguration());
+            modelBuilder.ApplyConfiguration(new PrestamoConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=AccountManagerNet5;Trusted_Connection=True;");
+            optionsBuilder.UseNpgsql(@"Server=localhost;Port=5432;Database=TpFinal;Username=postgres;Password=patita123");
         }
 
     }

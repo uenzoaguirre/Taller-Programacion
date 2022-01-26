@@ -8,7 +8,8 @@ namespace Aplication
     public class Prestamo
     {
         public Prestamo() { }
-
+    
+        public int Id { get; set; }
         public DateTime FechaPrestamo { get; set; }
 
         public DateTime? FechaDevolucion { get; set; }
@@ -17,6 +18,6 @@ namespace Aplication
 
         public Usuario Solicitante { get; set; }
 
-        public int Id { get; set; }
+        public Ejemplar Ejemplar { get; set; }
     }
 }

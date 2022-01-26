@@ -9,10 +9,12 @@ namespace Aplication
     {
         public Ejemplar() { }
 
+        public int Id { get; set; }
+
+        public Edicion Edicion { get; set; }
         public string CodigoInventario { get; set; }
 
         public DateTime FechaAlta { get; set; }
 
-        public List<Prestamo> Prestamos { get; set; }
     }
 }

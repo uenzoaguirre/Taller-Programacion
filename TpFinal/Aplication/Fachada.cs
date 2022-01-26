@@ -9,13 +9,11 @@ namespace Aplication
 
     {
         IServicesObras obras;
-        IServicesEdicion edicion1;
         IServicesAutores autores;
-        IRepositorioPrestamo repoPrestamo;
-        IRepositorioUsuario repoUsuarios; 
-        IRepositorioEdiciones repoEdiciones;
+        IRepositorioPrestamos repoPrestamo;
+        IRepositorioUsuarios repoUsuarios; 
         IRepositorioEjemplares repoEjemplares;
-
+        IRepositorioObras repoObras;
 
 
         public void AgregarUsuario(DTOUsuario usuario , bool esAdmin)

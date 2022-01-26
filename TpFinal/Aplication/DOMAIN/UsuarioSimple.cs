@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public class UsuarioSimple
+    public class UsuarioSimple : Usuario
     {
-        
+        public UsuarioSimple()
+        {
+            EsAdministrador = false;
+        }
     }
 }

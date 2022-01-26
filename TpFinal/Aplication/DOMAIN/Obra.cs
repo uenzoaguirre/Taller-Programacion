@@ -8,6 +8,7 @@ namespace Aplication
     public class Obra
     {
 
+        public int Id { get; set; }
         public string Titulo
         {
             get; set;
