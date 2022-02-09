@@ -6,13 +6,13 @@ using System.Linq.Expressions;
 
 namespace Aplication
 {
-    public interface IRepositorio<T> 
+    public interface IRepositorio<T>
     {
         void Agregar(T pItem);
-        
+
         IEnumerable<T> ObtenerTodos();
 
-
-        IEnumerable<T> Encontrar(Expression< Func<T,bool> > predicado );
+        T Obtener(int id);
+        void Eliminar(T elemento);
     }
 }

@@ -7,43 +7,25 @@ namespace Aplication
 {
     public class Obra
     {
-        string titulo;
-        string lccn;
-        string descripcion;
 
+        public int Id { get; set; }
         public string Titulo
         {
-            get
-            {
-                return this.titulo;
-            }
+            get; set;
         }
 
         public string Lccn
         {
-            get
-            {
-                return this.lccn;
-            }
+            get; set;
         }
 
         public string Descripcion
         {
-            get
-            {
-                return this.descripcion;
-            }
+            get; set;
         }
 
-        public Obra(string pTtiulo, string pLccn, string pDescripicon)
+        public Obra()
         {
-            this.titulo = pTtiulo;
-            this.lccn = pLccn;
-            this.descripcion = pDescripicon;
         }
-
-
     }
-
-
 }

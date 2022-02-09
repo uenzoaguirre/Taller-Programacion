@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Aplication
 {
-    public interface IRepositorioEdiciones : IRepositorio<Edicion>
+    public interface IRepositorioObras : IRepositorio<Obra>
     {
-
+        
     }
 }

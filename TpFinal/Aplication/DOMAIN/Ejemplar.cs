@@ -7,25 +7,14 @@ namespace Aplication
 {
     public class Ejemplar
     {
-        public string CodigoInventario { get { return codigoInventario; } }
+        public Ejemplar() { }
 
-        public DateTime FechaAlta { get { return fechaAlta; } }
+        public int Id { get; set; }
 
-        public List<Prestamo> Prestamos { get { return prestamos; } }
+        public Edicion Edicion { get; set; }
+        public string CodigoInventario { get; set; }
 
-        // FIX: Agregar el parametro pPrestamos al ctor
-        public Ejemplar(string pCodInventario, DateTime pFechaAlta, List<Prestamo> pPrestamos)
-        {
-            this.codigoInventario = pCodInventario;
-            this.fechaAlta = pFechaAlta;
-            this.prestamos = pPrestamos;
-        }
+        public DateTime FechaAlta { get; set; }
 
-        string codigoInventario;
-
-        DateTime fechaAlta;
-
-        // FIX: Agregar al diagrama el nombre de la relacion
-        List<Prestamo> prestamos;
     }
 }
