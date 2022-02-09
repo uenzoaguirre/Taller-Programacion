@@ -7,7 +7,18 @@ namespace Aplication
 {
     public class Prestamo
     {
-        public Prestamo() { }
+        public Prestamo(int pId,DateTime pFechaPrestamo, DateTime pFechaVencimiento, Ejemplar pEjemplar, Usuario pSolicitante) 
+        {
+            Id = pId;
+            FechaPrestamo = pFechaPrestamo;
+            FechaVencimiento = pFechaVencimiento;
+            Ejemplar = pEjemplar;
+            Solicitante = pSolicitante;
+        }
+        public Prestamo()
+        {
+            
+        }
     
         public int Id { get; set; }
         public DateTime FechaPrestamo { get; set; }
