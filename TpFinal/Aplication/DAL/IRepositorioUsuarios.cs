@@ -7,19 +7,7 @@ namespace Aplication
 {
     public interface IRepositorioUsuarios : IRepositorio<Usuario>
     {
-        /* void Agregar (usuario pUsuario)
-         {
-
-         }
-         usuario ObtenerPorDni(int dni)
-         {
-
-         }
-
-         List<Usuario> Encontrar(int predicado)
-         {
-
-         }*/
+        Usuario ObtenerPorNombreDeUsuario(string NombreUsuario);
 
     }
 }

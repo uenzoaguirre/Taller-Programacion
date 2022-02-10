@@ -29,7 +29,7 @@ namespace Aplication.DAL.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"Server=localhost;Port=5432;Database=TpFinal;Username=postgres;Password=admin");
+            optionsBuilder.UseNpgsql(@"Server=motty.db.elephantsql.com;Port=5432;Database=zqzvknse;Username=zqzvknse;Password=6FafZ0KQtMl0ra9QCvw5Ii8G3S47wWi2");
         }
 
     }

@@ -9,6 +9,7 @@ namespace Aplication
     {
         public string codigoInventario { get; set; }
         public DateTime FechaAlta { get; set; }
-        
-    }
+        public DTOEdicion Edicion { get; set; }
+
+}
 }

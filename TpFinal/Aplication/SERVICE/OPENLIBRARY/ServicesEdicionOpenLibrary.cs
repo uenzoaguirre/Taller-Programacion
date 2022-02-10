@@ -56,10 +56,10 @@ namespace Aplication
 
                 if (mResponseJson.ContainsKey("number_of_pages"))
                 {
-                    edicion.numeroPaginas = mResponseJson["number_of_pages"];
+                    edicion.NumeroPaginas = mResponseJson["number_of_pages"];
                 }
 
-                edicion.Edicion = mResponseJson["revision"];
+                edicion.AnioEdicion = mResponseJson["revision"];
 
                 if (mResponseJson.ContainsKey("publish_date"))
                 {

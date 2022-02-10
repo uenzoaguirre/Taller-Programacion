@@ -9,7 +9,17 @@ namespace Aplication.DAL.EntityFramework
     {
         public RepositorioUsuarios (BibliotecaDbContext pDbContext) : base(pDbContext)
         {
+            
 
+        }
+        public Usuario ObtenerPorNombreDeUsuario(string NombreUsuario)
+        {
+            var usuariosEncontrados = this.iDbContext.Usuarios.Where(u => u.NombreUsuario == NombreUsuario).ToList();
+            if (usuariosEncontrados.Count == 0)
+            {
+                throw new Exception();
+            }
+            return usuariosEncontrados[0]; 
         }
     }
 }

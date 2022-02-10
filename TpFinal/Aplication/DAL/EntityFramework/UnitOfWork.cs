@@ -7,7 +7,7 @@ namespace Aplication.DAL.EntityFramework
 {
     public class UnitOfWork : IUnitOfWork
     {
-        //Conexion a la base de dato//
+        //Conexion a la base de datos//
         private readonly BibliotecaDbContext iDbContext;
         private bool iDisposedValue = false;
 

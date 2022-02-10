@@ -8,10 +8,12 @@ namespace Aplication
     public class DTOEdicion
     {
         public string Isbn { get; set; }
-        public int  Edicion { get; set; }
-        public int numeroPaginas { get; set; }
+        public int AnioEdicion { get; set; }
+        public int NumeroPaginas { get; set; }
         public string Portada { get; set; }
         public DateTime FechaPublicacion { get; set; }
-        
+        public DTOObra Obra { get;  set; }
+        public string Id { get; set; }
+
     }
 }
