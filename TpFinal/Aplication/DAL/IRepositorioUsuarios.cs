@@ -8,6 +8,7 @@ namespace Aplication
     public interface IRepositorioUsuarios : IRepositorio<Usuario>
     {
         Usuario ObtenerPorNombreDeUsuario(string NombreUsuario);
+        Usuario ObtenerPorDNI(int Dni);
 
     }
 }

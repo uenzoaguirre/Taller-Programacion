@@ -7,6 +7,6 @@ namespace Aplication
 {
     public interface IRepositorioEjemplares : IRepositorio<Ejemplar>
     {
-
+        public Ejemplar ObtenerPorCodInv(string CodigoInventario);
     }
 }

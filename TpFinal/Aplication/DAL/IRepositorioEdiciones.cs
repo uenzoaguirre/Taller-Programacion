@@ -7,6 +7,6 @@ namespace Aplication
 {
     public interface IRepositorioEdiciones : IRepositorio<Edicion>
     {
-
+        public Edicion ObtenerPorISBN(string Isbn);
     }
 }

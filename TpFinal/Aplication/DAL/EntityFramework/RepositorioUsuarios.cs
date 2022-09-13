@@ -21,5 +21,11 @@ namespace Aplication.DAL.EntityFramework
             }
             return usuariosEncontrados[0]; 
         }
+
+        public Usuario ObtenerPorDNI(int dni)
+        {
+            var usuariosEncontrados = this.iDbContext.Usuarios.Where(u => u.Dni == dni).First();
+            return usuariosEncontrados; 
+        }
     }
 }

@@ -11,5 +11,11 @@ namespace Aplication.DAL.EntityFramework
         {
 
         }
+        public Obra ObtenerPorLccn (string Lccn)
+        {
+            return iDbContext.Obras.Where(u => u.Lccn == Lccn).First();
+        }
+
     }
 }
+

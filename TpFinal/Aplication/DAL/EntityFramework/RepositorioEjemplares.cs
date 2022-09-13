@@ -9,7 +9,12 @@ namespace Aplication.DAL.EntityFramework
     {
         public RepositorioEjemplares (BibliotecaDbContext pDbContext) : base(pDbContext)
         {
+            
+        }
 
+        public Ejemplar ObtenerPorCodInv(string codigoInventario)
+        {
+            return iDbContext.Ejemplares.Where(u => u.CodigoInventario == codigoInventario).First();
         }
     }
 }

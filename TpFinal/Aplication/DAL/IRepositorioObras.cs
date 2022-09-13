@@ -7,6 +7,7 @@ namespace Aplication
 {
     public interface IRepositorioObras : IRepositorio<Obra>
     {
-        
+        public Obra ObtenerPorLccn (string Lccn);
     }
+
 }

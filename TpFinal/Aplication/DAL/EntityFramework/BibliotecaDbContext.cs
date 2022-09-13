@@ -11,10 +11,10 @@ namespace Aplication.DAL.EntityFramework
     public class BibliotecaDbContext : DbContext
     {
         public DbSet<Ejemplar> Ejemplares { get; set; }
-        public DbSet<Obra> Orbras { get; set; }
+        public DbSet<Obra> Obras { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-
+        public DbSet<Edicion> Ediciones { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //cambiamos el nombre de la tabla//
