@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 namespace Aplication.DAL.EntityFramework
 {
     public abstract class Repository<TEntity, TDbContext> : IRepositorio<TEntity> where TEntity : class
@@ -11,6 +12,7 @@ namespace Aplication.DAL.EntityFramework
 
         protected readonly TDbContext iDbContext;
 
+        protected readonly DbSet<TEntity> iDbSet;
         public Repository(TDbContext pDbContext)
         {
             if (pDbContext == null)
@@ -19,8 +21,8 @@ namespace Aplication.DAL.EntityFramework
             }
 
             this.iDbContext = pDbContext;
+            this.iDbSet = this.iDbContext.Set<TEntity>();
         }
-
         public void Agregar(TEntity pEntity)
         {
             if (pEntity == null)
@@ -50,5 +52,11 @@ namespace Aplication.DAL.EntityFramework
 
             this.iDbContext.Set<TEntity>().Remove(pEntity);
         }
+
+        public IEnumerable<TEntity> Search(Expression<Func<TEntity, bool>> predicate)
+        {
+            return iDbSet.Where(predicate).ToList();
+        }
+
     }
 }

@@ -78,11 +78,13 @@ namespace Aplication
         }
 
 
-
-
-        public List<DTOPrestamo> PrestamosProximosAVencer(string dni)
+        public List<DTOPrestamo> PrestamosProximosAVencer(int dni)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+              var listaPrestamosProxAVencer = bUoW.RepositorioPrestamos.Search(u => u.Solicitante.Dni == dni && (u.FechaVencimiento - DateTime.Now).TotalDays < 7).ToList();
+              return listaPrestamosProxAVencer.Select(p => new DTOPrestamo {Id = p.Id, FechaPrestamo = p.FechaPrestamo, FechaVencimiento = p.FechaVencimiento}).ToList();     
+            }
         }
 
         public List<DTOPrestamo> ListarPrestamos(string dni)
@@ -214,13 +216,42 @@ namespace Aplication
                 bUoW.Complete();
             }
         }
-        public void DevolverEjemplar(string dni, int idPrestamo, bool buenEstado)
+        public void DevolverEjemplar(int dni, int idPrestamo, bool buenEstado)
         {
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                Usuario usuario = bUoW.RepositorioUsuarios.ObtenerPorDNI(dni);
+                Prestamo prestamo = bUoW.RepositorioPrestamos.Obtener(idPrestamo);
 
+                prestamo.FechaDevolucion = DateTime.Now;
+
+                if (!buenEstado)
+                {
+                    usuario.Puntaje -= 10;
+                }
+
+                if (DateTime.Now > prestamo.FechaVencimiento)
+                {
+                    usuario.Puntaje -= 2 * (int)(DateTime.Now - prestamo.FechaVencimiento).TotalDays;
+                }
+
+                if (buenEstado && prestamo.FechaVencimiento > DateTime.Now)
+                {
+                    usuario.Puntaje += 5;
+                }
+
+                bUoW.Complete();
+            }
         }
-        public void BajaEjemplar(string codigoInventario, string isbn)
+        public void BajaEjemplar(string codigoInventario)
         {
-            
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                Ejemplar ejemplar = bUoW.RepositorioEjemplares.ObtenerPorCodInv(codigoInventario);
+
+                ejemplar.FechaBaja = DateTime.Now;
+                bUoW.Complete();
+            }
         }
     }
 }

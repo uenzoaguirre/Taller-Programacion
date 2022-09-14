@@ -9,7 +9,7 @@ namespace Aplication
     {
         public int Id { get; set; }
         public DateTime FechaPrestamo { get; set; }
-        public DateTime FechaDevolucion { get; set; }
+        public DateTime? FechaDevolucion { get; set; }
 
         public DateTime FechaVencimiento { get; set; }
 

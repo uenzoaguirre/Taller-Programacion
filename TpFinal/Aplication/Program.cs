@@ -36,10 +36,10 @@ namespace Aplication
             };
             DTOUsuario dTOUsuario1 = new DTOUsuario
             {
-                Nombre = "Anashe",
+                Nombre = "Enzo",
                 Dni = 425,
-                Password = "Anashe", 
-                Mail = "Anashe@gmail.com",
+                Password = "Enzo123", 
+                Mail = "Enzo@gmail.com",
                 FechaRegistro = DateTime.Now , 
                 Puntaje = 0, 
 
