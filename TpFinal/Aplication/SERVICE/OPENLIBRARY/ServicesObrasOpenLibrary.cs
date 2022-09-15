@@ -38,15 +38,20 @@ namespace Aplication
                 foreach (var bResponseItem in mResponseJSON.docs)
                 {
                     DTOObra obra = new DTOObra();
-                    obra.Autores = new List<DTOAutor>();
+                    var listaAutores = new List<string>();
 
                     foreach (var autorkey in bResponseItem.author_key)
                     {
                         // como lo buscamos por el id que nos da openlibrary sabemos que existe
                         var autores = ServiceAutoresOpenLibrary.Buscar(new Dictionary<string, string>() { { "Id", autorkey.Value } });
-                        obra.Autores.Add(autores[0]);
+                        listaAutores.Add(autores[0].Nombre);
                     }
-
+                     
+                    foreach (var author in listaAutores)
+                    {
+                        obra.Autores += author + ",";
+                    }
+                    
                     obra.Titulo = HttpUtility.HtmlDecode(bResponseItem.title.ToString());
                     obra.Generos = new List<string>();
                     if (bResponseItem.ContainsKey("subject"))

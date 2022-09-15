@@ -11,7 +11,7 @@ namespace Aplication
         public string Lccn { get; set; }
         public string Descripcion { get; set; }
         public List<string> Generos { get; set; }
-        public List<DTOAutor> Autores { get; set; }
+        public string Autores { get; set; }
         public List<DTOEdicion> Ediciones { get; set; }
 
         

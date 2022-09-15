@@ -11,5 +11,7 @@ namespace Aplication
         public DateTime FechaAlta { get; set; }
         public DTOEdicion Edicion { get; set; }
 
-}
+        public DateTime FechaBaja { get; set; }
+
+    }
 }

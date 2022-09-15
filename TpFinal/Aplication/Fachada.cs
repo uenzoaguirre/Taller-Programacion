@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Aplication.DAL;
 using Aplication.DAL.EntityFramework;
+using AutoMapper;
 
 namespace Aplication
 {
+
     public class Fachada
 
     {
@@ -17,6 +19,18 @@ namespace Aplication
         IRepositorioEjemplares repoEjemplares;
         IRepositorioObras repoObras;
 
+        private static readonly IMapper cMapper;
+
+        static Fachada()
+        {
+            var mConfiguration = new MapperConfiguration(pConfiguration =>
+            {
+                pConfiguration.CreateMap<Edicion, DTOEdicion>();
+                pConfiguration.CreateMap<Obra, DTOObra>();
+            });
+
+            cMapper = mConfiguration.CreateMapper();
+        }
 
         public void AgregarUsuario(DTOUsuario usuario, bool esAdmin)
         {
@@ -82,34 +96,57 @@ namespace Aplication
         {
             using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
             {
-              var listaPrestamosProxAVencer = bUoW.RepositorioPrestamos.Search(u => u.Solicitante.Dni == dni && (u.FechaVencimiento - DateTime.Now).TotalDays < 7).ToList();
-              return listaPrestamosProxAVencer.Select(p => new DTOPrestamo {Id = p.Id, FechaPrestamo = p.FechaPrestamo, FechaVencimiento = p.FechaVencimiento}).ToList();     
+                var listaPrestamosProxAVencer = bUoW.RepositorioPrestamos.Search(u => u.Solicitante.Dni == dni && (u.FechaVencimiento - DateTime.Now).TotalDays < 7).ToList();
+                return listaPrestamosProxAVencer.Select(p => new DTOPrestamo { Id = p.Id, FechaPrestamo = p.FechaPrestamo, FechaVencimiento = p.FechaVencimiento }).ToList();
             }
         }
 
-        public List<DTOPrestamo> ListarPrestamos(string dni)
+        public List<DTOPrestamo> ListarPrestamos(int dni)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var listaPrestamos = bUoW.RepositorioPrestamos.Search(u => u.Solicitante.Dni == dni).ToList();
+                return listaPrestamos.Select(p => new DTOPrestamo { Id = p.Id, FechaPrestamo = p.FechaPrestamo, FechaVencimiento = p.FechaVencimiento }).ToList();
+            }
         }
 
-        public List<DTOPrestamo> PrestamosEntreFechas(string dni, DateTime fechaInicio, DateTime fechaFin)
+        public List<DTOPrestamo> PrestamosEntreFechas(int dni, DateTime fechaInicio, DateTime fechaFin)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var listaPrestamosEntreFechas = bUoW.RepositorioPrestamos.Search(u => u.Solicitante.Dni == dni && u.FechaPrestamo <= fechaFin && u.FechaPrestamo >= fechaInicio).ToList();
+                return listaPrestamosEntreFechas.Select(p => new DTOPrestamo { Id = p.Id, FechaPrestamo = p.FechaPrestamo, FechaVencimiento = p.FechaVencimiento }).ToList();
+            }
         }
 
         public bool EsUsuarioAdmin(string nombreUsuario)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var usuario = bUoW.RepositorioUsuarios.Search(u => u.NombreUsuario == nombreUsuario).First();
+                return usuario.EsAdministrador;
+            }
         }
 
-        public List<DTOEjemplar> ListarEjemplares(DTOEjemplar ejemplar)
+        public List<DTOEjemplar> ListarEjemplares(string isbn)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var listaEjemplares = bUoW.RepositorioEjemplares.Search(u => u.Edicion.Isbn == isbn).ToList();
+                var edicion = bUoW.RepositorioEdiciones.ObtenerPorISBN(isbn);
+                var ejemplar = cMapper.Map<IList<DTOEjemplar>>(listaEjemplares);
+                return ejemplar.ToList();
+            };
         }
 
-        public List<DTOEdicion> ListarEdiciones(DTOEdicion edicion)
+        public List<DTOEdicion> ListarEdiciones(string Lccn)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var listarEdiciones = bUoW.RepositorioEdiciones.Search(u => u.Obra.Lccn == Lccn).ToList();
+                var ediciones = cMapper.Map<IList<DTOEdicion>>(listarEdiciones);
+                return ediciones.ToList();
+            };
         }
 
         public void AgregarEdicion(DTOEdicion edicion)
@@ -135,9 +172,13 @@ namespace Aplication
             }
         }
 
-        public bool ExisteEdicion(DTOEdicion edicion)
+        public bool ExisteEdicion(string Isbn)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var edicion = bUoW.RepositorioEdiciones.Search(u => u.Isbn == Isbn).ToList();
+                return edicion.Count() > 0;
+            }
         }
         public void BajaUsuario(int dni)
         {
@@ -149,9 +190,13 @@ namespace Aplication
             }
 
         }
-        public bool ExisteUsuario(DTOUsuario usuario)
+        public bool ExisteUsuario(int Dni)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork bUoW = new UnitOfWork(new BibliotecaDbContext()))
+            {
+                var usuario = bUoW.RepositorioUsuarios.Search(u => u.Dni == Dni).ToList();
+                return usuario.Count() > 0;
+            }
         }
         public void ModificarDatosUsuario(int dni, DTOUsuario usuario)
         {

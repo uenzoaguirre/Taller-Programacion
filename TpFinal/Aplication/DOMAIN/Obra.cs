@@ -27,5 +27,10 @@ namespace Aplication
         public Obra()
         {
         }
+
+        public string autores 
+        {
+            get; set;
+        }
     }
 }
