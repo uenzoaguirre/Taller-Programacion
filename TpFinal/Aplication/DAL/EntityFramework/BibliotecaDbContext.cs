@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Aplication.DAL.EntityFramework.Mapping;
 
-
 namespace Aplication.DAL.EntityFramework
-{
+{   
     public class BibliotecaDbContext : DbContext
     {
         public DbSet<Ejemplar> Ejemplares { get; set; }
@@ -15,6 +14,11 @@ namespace Aplication.DAL.EntityFramework
         public DbSet<Prestamo> Prestamos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Edicion> Ediciones { get; set; }
+
+        public BibliotecaDbContext()
+        {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //cambiamos el nombre de la tabla//
